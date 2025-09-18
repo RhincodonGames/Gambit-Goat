@@ -10,9 +10,15 @@ public class NewBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void QuitGame()
+    public void displayRules()
+    {
+        Debug.Log("Rules Displayed");
+    }
+
+    public void quitGame()
     {
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
 }

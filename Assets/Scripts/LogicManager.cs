@@ -19,9 +19,9 @@ public class Logic : MonoBehaviour
     public bool abyss;
     public bool dead;
 
-    public GameObject winLevelScreen;
-    public GameObject loseScreen;
-    public GameObject winGameScreen;
+    //public GameObject winLevelScreen;
+    public GameObject LoseScreen;
+    public GameObject WinGameScreen;
 
     public void nextLevel()
     {
@@ -30,22 +30,28 @@ public class Logic : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+    public void restartLevel()
+    {
+        Time.timeScale = 1f;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
     public void winGame()
     {
-        
+        if (saltCollected == 3)
+        {
+            WinGameScreen.SetActive(true);
+        }
     }
 
     public void loseGame()
     {
         if (abyss || dead)
         {
-            //SceneManager.LoadScene
+            LoseScreen.SetActive(true);
         }
-    }
-
-    public void restartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void quitGame()
