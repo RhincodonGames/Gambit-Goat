@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    public void restartLevel()
+    public void RestartLevel()
     {
         Time.timeScale = 1f;
         Scene currentScene = SceneManager.GetActiveScene();
@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     //
-    public void quitToMenu()
+    public void QuitToMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuScene");

@@ -1,37 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class goatMovement : MonoBehaviour
+public class GoatController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float acceleration;
-
     public float groundSpeed;
-
     public float jumpSpeed;
-
     [Range(0f, 1f)]
-
     public float groundDecay;
 
+    [Header("Components")]
     public Rigidbody2D body;
-
     public BoxCollider2D groundCheck;
-
     public LayerMask groundMask;
 
-    public bool grounded;
+    [Header("Logic")]
+    public bool isAlive = true;
+    public int saltCollected = 0;
+    public LogicManager logicManager;
 
     float xInput;
     float yInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool grounded;
 
     // Update is called once per frame
     void Update()
@@ -42,6 +38,9 @@ public class goatMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Stop all movement when dead
+        if (!isAlive) return;
+        
         CheckGround();
         ApplyFriction();
         MoveWithInput();
@@ -85,5 +84,42 @@ public class goatMovement : MonoBehaviour
         {
             body.velocity *= groundDecay;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Salt collection
+        if (collision.CompareTag("Salt"))
+        {
+            collision.gameObject.SetActive(false);
+            if (logicManager != null)
+                logicManager.AddSalt(1);
+            saltCollected++;
+            Debug.Log("Salt collected!");
+        }
+
+        //Enemy collision
+        if (collision.CompareTag("Enemy"))
+        {
+            IsDead();
+            Debug.Log("Goat died: hit enemy.");
+        }
+
+        //Abyss collision
+        //if (collision.gameObject.name == "Abyss") ;
+        //{
+        //    IsDead();
+        //    Debug.Log("Goat died: fell into abyss.");
+        //}
+    }
+
+    private void IsDead()
+    {
+        isAlive = false;
+        body.velocity = Vector2.zero;
+        body.isKinematic = true;
+            
+        if (logicManager != null)
+            logicManager.LoseGame();
     }
 }

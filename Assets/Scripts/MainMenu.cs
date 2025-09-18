@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    public void playGame()
+    public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("GameScene");
     }
 
-    public void displayRules()
+    public void DisplayRules()
     {
         Debug.Log("Rules Displayed");
     }
 
-    public void quitGame()
+    public void QuitGame()
     {
         Debug.Log("QUIT!");
         Application.Quit();

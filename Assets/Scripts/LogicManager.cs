@@ -3,27 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Logic : MonoBehaviour
+public class LogicManager : MonoBehaviour
 {
-    public int saltCollected;
-    public bool currentLevel;
-
-    public bool level1Complete;
-    public bool level2Complete;
-    public bool level3Complete;
-    public bool level4Complete;
-    public bool level5Complete;
-
-    public bool abyss;
-    public bool dead;
+    public GoatController goatController;
 
     //public GameObject winLevelScreen;
     public GameObject LoseScreen;
     public GameObject WinGameScreen;
 
-    public void nextLevel()
+    public int saltCollected = 0;
+    public Text scoreText;
+
+    public bool currentLevel;
+
+    public bool level1Complete;
+    //public bool level2Complete;
+    //public bool level3Complete;
+    //public bool level4Complete;
+    //public bool level5Complete;
+
+    //Increase Salt Collected Count
+    public void AddSalt(int saltToAdd)
+    {
+        saltCollected += saltToAdd;
+        scoreText.text = saltCollected.ToString();
+    }
+
+    public void NextLevel()
     {
         if (currentLevel)
         {
@@ -31,14 +40,14 @@ public class Logic : MonoBehaviour
         }
     }
 
-    public void restartLevel()
+    public void RestartLevel()
     {
         Time.timeScale = 1f;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
 
-    public void winGame()
+    public void WinGame()
     {
         if (saltCollected == 3)
         {
@@ -46,15 +55,15 @@ public class Logic : MonoBehaviour
         }
     }
 
-    public void loseGame()
+    public void LoseGame()
     {
-        if (abyss || dead)
+        if (!goatController.isAlive)
         {
             LoseScreen.SetActive(true);
         }
     }
 
-    public void quitGame()
+    public void QuitGame()
     {
         Debug.Log("Returning to Menu Scene...");
         SceneManager.LoadScene("MenuScene");

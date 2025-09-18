@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4692c635405a5ee4f97d0cfe1eb43cf0
+guid: b9b646d2d9c1baa44aaa27e5672a282d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2f912101c98a8f4cad6c5f1cd1eb444
-      internalID: -2049957075
+      spriteID: b459acb219cff6f44b7cf531611230e2
+      internalID: 1726957660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gambit_Goat_Tile_Set_1
+      name: Cliff_Depths
       rect:
         serializedVersion: 2
-        x: 80
-        y: 160
+        x: 16
+        y: 144
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32ce0f434c8c16449be224446ce43780
-      internalID: 776069824
+      spriteID: e92ab392385bf6345a7078a6337a8eb1
+      internalID: -2147419225
       vertices: []
       indices: 
       edges: []
@@ -168,10 +168,10 @@ TextureImporter:
       name: Gambit_Goat_Tile_Set_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160
+        x: 80
+        y: 128
         width: 32
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f71768cb641b8f4ca9e35ee9af75c1b
-      internalID: 1262911396
+      spriteID: edd756627afd64148aa0831a5e5effd2
+      internalID: -1992202524
       vertices: []
       indices: 
       edges: []
@@ -189,8 +189,8 @@ TextureImporter:
       name: Gambit_Goat_Tile_Set_3
       rect:
         serializedVersion: 2
-        x: 176
-        y: 160
+        x: 128
+        y: 128
         width: 32
         height: 64
       alignment: 0
@@ -200,20 +200,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01ba97766bddd8049838eccc26699bf7
-      internalID: 128470937
+      spriteID: fad27fd533276fc41b8fdeb4f45c8855
+      internalID: -319593758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gambit_Goat_Tile_Set_4
+      name: Standard_Cliff
       rect:
         serializedVersion: 2
-        x: 83
-        y: 96
+        x: 176
+        y: 128
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9df17f3396b81408f14bd7a9609eb8
+      internalID: 310648903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium_Obstacle
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
         width: 26
-        height: 32
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fc4ca6a232a0554bb6f9472a69c6c70
-      internalID: 590069933
+      spriteID: 21634260b63e1b94e92cf41696b9aaa4
+      internalID: 1412391070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gambit_Goat_Tile_Set_5
+      name: Small_Obstacle
       rect:
         serializedVersion: 2
-        x: 120
-        y: 96
+        x: 87
+        y: 22
         width: 16
-        height: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +263,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cd347d314c074f4b91485a487863d0d
-      internalID: -1707325298
+      spriteID: 9a7041879fe2696439fb6a06e283967d
+      internalID: 1409783565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_Extension
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab519cd824b1d64aae28677ce4be3c8
+      internalID: -1518385771
       vertices: []
       indices: 
       edges: []
@@ -259,12 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gambit_Goat_Tile_Set_0: -2049957075
-      Gambit_Goat_Tile_Set_1: 776069824
-      Gambit_Goat_Tile_Set_2: 1262911396
-      Gambit_Goat_Tile_Set_3: 128470937
-      Gambit_Goat_Tile_Set_4: 590069933
-      Gambit_Goat_Tile_Set_5: -1707325298
+      Cliff_Depths: -2147419225
+      Cliff_Extension: -1518385771
+      Gambit_Goat_Tile_Set_0: 1726957660
+      Gambit_Goat_Tile_Set_2: -1992202524
+      Gambit_Goat_Tile_Set_3: -319593758
+      Medium_Obstacle: 1412391070
+      Small_Obstacle: 1409783565
+      Standard_Cliff: 310648903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
