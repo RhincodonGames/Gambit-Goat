@@ -12,16 +12,11 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float targetY = target.position.y + yOffset;
-
-        if (targetY < yMin)
+        if (target.position.y >= yMin)
         {
-            targetY = yMin;
+            Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
+            transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
         }
-
-        Vector3 newPos = new Vector3(target.position.x, targetY, -10f);
-
-        transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed*Time.deltaTime);
 
         ////If goat falls below (like into abyss), reset y-axis of camera
         //if (target.position.y < yMin)
