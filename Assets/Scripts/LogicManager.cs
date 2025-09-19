@@ -30,6 +30,11 @@ public class LogicManager : MonoBehaviour
     {
         saltCollected += saltToAdd;
         scoreText.text = saltCollected.ToString();
+
+        if (saltCollected == 3)
+        {
+            WinGame();
+        }
     }
 
     public void NextLevel()
@@ -49,18 +54,13 @@ public class LogicManager : MonoBehaviour
 
     public void WinGame()
     {
-        if (saltCollected == 3)
-        {
-            WinGameScreen.SetActive(true);
-        }
+        WinGameScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void LoseGame()
     {
-        if (!goatController.isAlive)
-        {
-            LoseScreen.SetActive(true);
-        }
+        LoseScreen.SetActive(true);
     }
 
     public void QuitGame()
