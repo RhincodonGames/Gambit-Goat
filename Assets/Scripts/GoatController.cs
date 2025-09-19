@@ -29,6 +29,15 @@ public class GoatController : MonoBehaviour
     float yInput;
     public bool grounded;
 
+    private AudioSource audioSource;
+
+    public AudioClip saltCollectionSound;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -96,6 +105,12 @@ public class GoatController : MonoBehaviour
                 logicManager.AddSalt(1);
             saltCollected++;
             Debug.Log("Salt collected!");
+
+            //Play sound
+            if (saltCollectionSound != null)
+            {
+                audioSource.PlayOneShot(saltCollectionSound);
+            }
         }
 
         //Enemy collision

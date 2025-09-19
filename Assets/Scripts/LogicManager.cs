@@ -25,6 +25,17 @@ public class LogicManager : MonoBehaviour
     //public bool level4Complete;
     //public bool level5Complete;
 
+    private AudioSource audioSource;
+
+    public AudioClip winSound;
+
+    public AudioClip loseSound;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     //Increase Salt Collected Count
     public void AddSalt(int saltToAdd)
     {
@@ -55,12 +66,23 @@ public class LogicManager : MonoBehaviour
     public void WinGame()
     {
         WinGameScreen.SetActive(true);
+
+        if (winSound != null)
+        {
+            audioSource.PlayOneShot(winSound);
+        }
+
         Time.timeScale = 0f;
     }
 
     public void LoseGame()
     {
         LoseScreen.SetActive(true);
+
+        if(loseSound != null)
+        {
+            audioSource.PlayOneShot(loseSound);
+        }
     }
 
     public void QuitGame()
