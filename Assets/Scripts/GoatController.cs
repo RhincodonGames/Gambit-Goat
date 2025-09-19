@@ -32,6 +32,7 @@ public class GoatController : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip saltCollectionSound;
+    public AudioSource walkingSounds;
 
     void Awake()
     {
@@ -43,6 +44,8 @@ public class GoatController : MonoBehaviour
     {
         GetInput();
         HandleJump();
+
+        HandleFootsteps();
     }
 
     private void FixedUpdate()
@@ -92,6 +95,26 @@ public class GoatController : MonoBehaviour
         if (grounded && xInput == 0 && body.velocity.y <= 0)
         {
             body.velocity *= groundDecay;
+        }
+    }
+
+    void HandleFootsteps()
+    {
+        bool isMovingHorizontally = Mathf.Abs(xInput) > 0.01f;
+
+        if (grounded && isMovingHorizontally)
+        {
+            if (!walkingSounds.isPlaying)
+            {
+                walkingSounds.Play();
+            }
+        }
+        else
+        {
+            if (walkingSounds.isPlaying)
+            {
+                walkingSounds.Stop();
+            }
         }
     }
 
